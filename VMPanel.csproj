@@ -1,0 +1,47 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <AssemblyName>VMPanel</AssemblyName>
+    <RootNamespace>VMPanel</RootNamespace>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CounterStrikeSharp.API" Version="1.0.374">
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
+    <PackageReference Include="MySqlConnector" Version="2.4.0" />
+    <PackageReference Include="PanoramaManager" Version="0.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <LangFiles Include="$(MSBuildProjectDirectory)\lang\*.json" />
+  </ItemGroup>
+
+  <Target Name="CopyPluginFiles" AfterTargets="Build">
+    <PropertyGroup>
+      <PluginOutputDir>$(MSBuildProjectDirectory)\VMPanel\</PluginOutputDir>
+    </PropertyGroup>
+    <MakeDir Directories="$(PluginOutputDir)" />
+    <ItemGroup>
+      <PluginFiles Include="$(TargetDir)VMPanel.dll" />
+      <PluginFiles Include="$(TargetDir)VMPanel.pdb" />
+      <PluginFiles Include="$(TargetDir)MySqlConnector.dll" />
+      <!-- PanoramaManager ships its own DLL next to the plugin (the CSS
+           plugin load context probes the plugin directory). Resolved via
+           the package id so future dependency file changes don't rot here. -->
+      <PluginFiles Include="@(RuntimeCopyLocalItems)"
+                   Condition="'%(RuntimeCopyLocalItems.NuGetPackageId)' == 'PanoramaManager'" />
+    </ItemGroup>
+    <Copy SourceFiles="@(PluginFiles)"
+          DestinationFolder="$(PluginOutputDir)"
+          SkipUnchangedFiles="true" />
+    <MakeDir Directories="$(PluginOutputDir)lang" />
+    <Copy SourceFiles="@(LangFiles)"
+          DestinationFolder="$(PluginOutputDir)lang"
+          SkipUnchangedFiles="true" />
+  </Target>
+</Project>

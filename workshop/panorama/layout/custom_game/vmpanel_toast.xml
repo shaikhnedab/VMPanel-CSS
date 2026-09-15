@@ -1,0 +1,21 @@
+<root>
+  <styles>
+    <include src="file://{resources}/styles/custom_game/vmpanel_menu.css" />
+  </styles>
+
+  <!-- No id on the root panel: the compiler rejects one there. -->
+  <Panel class="vmpanel-screen" hittest="false">
+    <Panel id="VMToastRoot" class="vmtoast-window">
+      <Label id="ToastTitle"    class="vmtoast-title"    text="{s:toast_title}" />
+      <Label id="ToastSubtitle" class="vmtoast-subtitle" text="{s:toast_subtitle}" />
+
+      <!-- Row pool for PanoramaManager (RowCount = 1). Never filled. -->
+      <Panel id="row0" class="vmpanel-poolrow hidden">
+        <Button id="row0_btn" class="vmpanel-row">
+          <Label class="vmpanel-row-title" text="{s:row0_title}" />
+          <Label class="vmpanel-row-subtitle" text="{s:row0_sub}" />
+        </Button>
+      </Panel>
+    </Panel>
+  </Panel>
+</root>

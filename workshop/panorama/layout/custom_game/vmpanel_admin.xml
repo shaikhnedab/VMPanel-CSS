@@ -1,0 +1,185 @@
+<root>
+  <styles>
+    <include src="file://{resources}/styles/custom_game/vmpanel_menu.css" />
+  </styles>
+
+  <!-- No id on the root panel: the compiler rejects one there.
+       Implements LayoutContract with RowCount = 8: the pool below IS the
+       page size, driven with SetItems from the plugin. -->
+  <Panel class="vmpanel-screen" hittest="false">
+    <Panel id="VMAdminRoot" class="vmpanel-window vmpanel-show-main">
+
+      <!-- Shared header, same for every viewer -->
+      <Label id="HeaderTitle" class="vmpanel-title" text="{s:menu_title}" />
+      <Label id="HeaderSubtitle" class="vmpanel-subtitle" text="{s:menu_subtitle}" />
+
+      <!-- ============ MAIN view ============ -->
+      <Panel id="admin_view_main" class="vmpanel-view vmpanel-view-main">
+        <Button id="admin_refresh" class="vmpanel-row vmpanel-row-action">
+          <Label id="admin_refresh_title"    class="vmpanel-row-title"    text="{s:admin_refresh_title}" />
+          <Label id="admin_refresh_subtitle" class="vmpanel-row-subtitle" text="{s:admin_refresh_subtitle}" />
+        </Button>
+
+        <Button id="admin_add" class="vmpanel-row vmpanel-row-action">
+          <Label id="admin_add_title"    class="vmpanel-row-title"    text="{s:admin_add_title}" />
+          <Label id="admin_add_subtitle" class="vmpanel-row-subtitle" text="{s:admin_add_subtitle}" />
+        </Button>
+
+        <Button id="admin_add_manual" class="vmpanel-row vmpanel-row-action">
+          <Label class="vmpanel-row-title" text="Add VIP by SteamID" />
+          <Label class="vmpanel-row-subtitle" text="For offline players, type it in chat" />
+        </Button>
+
+        <Button id="admin_browse" class="vmpanel-row vmpanel-row-action">
+          <Label id="admin_browse_title"    class="vmpanel-row-title"    text="{s:admin_browse_title}" />
+          <Label id="admin_browse_subtitle" class="vmpanel-row-subtitle" text="{s:admin_browse_subtitle}" />
+        </Button>
+
+        <Button id="admin_del" class="vmpanel-row vmpanel-row-action">
+          <Label id="admin_del_title"    class="vmpanel-row-title"    text="{s:admin_del_title}" />
+          <Label id="admin_del_subtitle" class="vmpanel-row-subtitle" text="{s:admin_del_subtitle}" />
+        </Button>
+
+        <Button id="admin_close" class="vmpanel-row vmpanel-row-action">
+          <Label id="admin_close_title"    class="vmpanel-row-title"    text="{s:ui_close}" />
+          <Label id="admin_close_subtitle" class="vmpanel-row-subtitle" text="{s:ui_close_sub}" />
+        </Button>
+      </Panel>
+
+      <!-- ============ BROWSE view: library row pool ============ -->
+      <Panel id="admin_view_browse" class="vmpanel-view vmpanel-view-browse">
+        <Label id="adminbrowse_title" class="vmpanel-browse-title" text="{s:adminbrowse_title}" />
+
+        <Panel id="row0" class="vmpanel-poolrow hidden">
+          <Button id="row0_btn" class="vmpanel-row vmpanel-row-action">
+            <Label class="vmpanel-row-title" text="{s:row0_title}" />
+            <Label class="vmpanel-row-subtitle" text="{s:row0_sub}" />
+          </Button>
+        </Panel>
+        <Panel id="row1" class="vmpanel-poolrow hidden">
+          <Button id="row1_btn" class="vmpanel-row vmpanel-row-action">
+            <Label class="vmpanel-row-title" text="{s:row1_title}" />
+            <Label class="vmpanel-row-subtitle" text="{s:row1_sub}" />
+          </Button>
+        </Panel>
+        <Panel id="row2" class="vmpanel-poolrow hidden">
+          <Button id="row2_btn" class="vmpanel-row vmpanel-row-action">
+            <Label class="vmpanel-row-title" text="{s:row2_title}" />
+            <Label class="vmpanel-row-subtitle" text="{s:row2_sub}" />
+          </Button>
+        </Panel>
+        <Panel id="row3" class="vmpanel-poolrow hidden">
+          <Button id="row3_btn" class="vmpanel-row vmpanel-row-action">
+            <Label class="vmpanel-row-title" text="{s:row3_title}" />
+            <Label class="vmpanel-row-subtitle" text="{s:row3_sub}" />
+          </Button>
+        </Panel>
+        <Panel id="row4" class="vmpanel-poolrow hidden">
+          <Button id="row4_btn" class="vmpanel-row vmpanel-row-action">
+            <Label class="vmpanel-row-title" text="{s:row4_title}" />
+            <Label class="vmpanel-row-subtitle" text="{s:row4_sub}" />
+          </Button>
+        </Panel>
+        <Panel id="row5" class="vmpanel-poolrow hidden">
+          <Button id="row5_btn" class="vmpanel-row vmpanel-row-action">
+            <Label class="vmpanel-row-title" text="{s:row5_title}" />
+            <Label class="vmpanel-row-subtitle" text="{s:row5_sub}" />
+          </Button>
+        </Panel>
+        <Panel id="row6" class="vmpanel-poolrow hidden">
+          <Button id="row6_btn" class="vmpanel-row vmpanel-row-action">
+            <Label class="vmpanel-row-title" text="{s:row6_title}" />
+            <Label class="vmpanel-row-subtitle" text="{s:row6_sub}" />
+          </Button>
+        </Panel>
+        <Panel id="row7" class="vmpanel-poolrow hidden">
+          <Button id="row7_btn" class="vmpanel-row vmpanel-row-action">
+            <Label class="vmpanel-row-title" text="{s:row7_title}" />
+            <Label class="vmpanel-row-subtitle" text="{s:row7_sub}" />
+          </Button>
+        </Panel>
+
+        <Label id="adminbrowse_footer" class="vmpanel-footer" text="{s:adminbrowse_footer}" />
+
+        <Panel class="vmpanel-browsenav">
+          <Button id="nav_prev" class="vmpanel-nav">
+            <Label class="vmpanel-nav-label" text="{s:ui_prev}" />
+          </Button>
+          <Label class="vmpanel-page" text="{s:menu_page}" />
+          <Button id="nav_next" class="vmpanel-nav">
+            <Label class="vmpanel-nav-label" text="{s:ui_next}" />
+          </Button>
+        </Panel>
+
+        <Panel class="vmpanel-navrow">
+          <Button id="adminvip_back" class="vmpanel-nav">
+            <Label class="vmpanel-nav-label" text="{s:ui_back}" />
+          </Button>
+        </Panel>
+      </Panel>
+
+      <!-- ============ ADD view ============ -->
+      <Panel id="admin_view_add" class="vmpanel-view vmpanel-view-add">
+        <Label id="admin_add_step" class="vmpanel-browse-title" text="{s:admin_add_step}" />
+        <Label id="admin_add_echo" class="vmpanel-row-echo"     text="{s:admin_add_echo}" />
+
+        <Button id="admin_add_confirm" class="vmpanel-row vmpanel-row-action">
+          <Label class="vmpanel-row-title" text="{s:admin_add_confirm_title}" />
+        </Button>
+        <Button id="admin_add_cancel" class="vmpanel-row vmpanel-row-action">
+          <Label class="vmpanel-row-title" text="{s:ui_cancel}" />
+        </Button>
+        <Panel class="vmpanel-navrow">
+          <Button id="admin_add_back" class="vmpanel-nav">
+            <Label class="vmpanel-nav-label" text="{s:ui_back}" />
+          </Button>
+        </Panel>
+      </Panel>
+
+      <!-- ============ DAYS view: durations from VipDurationOptions ============ -->
+      <Panel id="admin_view_days" class="vmpanel-view vmpanel-view-days">
+        <Label id="admin_days_summary" class="vmpanel-browse-title" text="{s:admin_days_summary}" />
+
+        <Panel class="vmpanel-navrow">
+          <Button id="admin_days_opt0" class="vmpanel-nav">
+            <Label id="admin_days_label0" class="vmpanel-nav-label" text="{s:admin_days_label0}" />
+          </Button>
+          <Button id="admin_days_opt1" class="vmpanel-nav">
+            <Label id="admin_days_label1" class="vmpanel-nav-label" text="{s:admin_days_label1}" />
+          </Button>
+        </Panel>
+        <Panel class="vmpanel-navrow">
+          <Button id="admin_days_opt2" class="vmpanel-nav">
+            <Label id="admin_days_label2" class="vmpanel-nav-label" text="{s:admin_days_label2}" />
+          </Button>
+          <Button id="admin_days_opt3" class="vmpanel-nav">
+            <Label id="admin_days_label3" class="vmpanel-nav-label" text="{s:admin_days_label3}" />
+          </Button>
+        </Panel>
+        <Panel class="vmpanel-navrow">
+          <Button id="admin_days_back" class="vmpanel-nav">
+            <Label class="vmpanel-nav-label" text="Back" />
+          </Button>
+        </Panel>
+      </Panel>
+
+      <!-- ============ REMOVE view ============ -->
+      <Panel id="admin_view_remove" class="vmpanel-view vmpanel-view-remove">
+        <Label id="admin_del_echo" class="vmpanel-browse-title" text="{s:admin_del_echo}" />
+
+        <Button id="admin_del_confirm" class="vmpanel-row vmpanel-row-action vmpanel-danger">
+          <Label class="vmpanel-row-title" text="{s:admin_del_confirm_title}" />
+        </Button>
+        <Button id="admin_del_cancel" class="vmpanel-row vmpanel-row-action">
+          <Label class="vmpanel-row-title" text="{s:ui_cancel}" />
+        </Button>
+        <Panel class="vmpanel-navrow">
+          <Button id="admin_del_back" class="vmpanel-nav">
+            <Label class="vmpanel-nav-label" text="{s:ui_back}" />
+          </Button>
+        </Panel>
+      </Panel>
+
+    </Panel>
+  </Panel>
+</root>

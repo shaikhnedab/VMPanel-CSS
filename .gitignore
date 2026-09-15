@@ -1,0 +1,17 @@
+# Build outputs
+bin/
+obj/
+VMPanel/
+dist/
+
+# Compiled panorama (rebuild via resourcecompiler; see README)
+*.vxml_c
+*.vcss_c
+
+# Third-party binaries (restored via NuGet, never committed)
+*.dll
+*.pdb
+
+# Local tool caches / previews
+workshop/previews/
+.vs/

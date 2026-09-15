@@ -1,0 +1,77 @@
+<root>
+  <styles>
+    <include src="file://{resources}/styles/custom_game/vmpanel_menu.css" />
+  </styles>
+
+  <!-- No id on the root panel: the compiler rejects one there. -->
+  <Panel class="vmpanel-screen" hittest="false">
+    <Panel id="VMPanelRoot" class="vmpanel-window">
+      <Label id="HeaderTitle" class="vmpanel-title" text="{s:header_title}" />
+      <Label id="HeaderSubtitle" class="vmpanel-subtitle" text="{s:header_subtitle}" />
+
+      <!-- Status row (clickable: reprints detailed status to chat) -->
+      <Button id="action_status" class="vmpanel-row vmpanel-row-status">
+        <Label id="status_title"    class="vmpanel-row-title"    text="{s:status_title}" />
+        <Label id="status_subtitle" class="vmpanel-row-subtitle" text="{s:status_subtitle}" />
+      </Button>
+
+      <!-- Action: Renew -->
+      <Button id="action_renew" class="vmpanel-row vmpanel-row-action">
+        <Label id="action_renew_title"    class="vmpanel-row-title"    text="{s:action_renew_title}" />
+        <Label id="action_renew_subtitle" class="vmpanel-row-subtitle" text="{s:action_renew_subtitle}" />
+      </Button>
+
+      <!-- Action: Admin (only visible with .vmpanel-admin class) -->
+      <Button id="action_admin" class="vmpanel-row vmpanel-row-action vmpanel-admin-only">
+        <Label id="action_admin_title"    class="vmpanel-row-title"    text="{s:action_admin_title}" />
+        <Label id="action_admin_subtitle" class="vmpanel-row-subtitle" text="{s:action_admin_subtitle}" />
+      </Button>
+
+      <!-- Action: Close -->
+      <Button id="action_close" class="vmpanel-row vmpanel-row-action">
+        <Label id="action_close_title"    class="vmpanel-row-title"    text="{s:action_close_title}" />
+        <Label id="action_close_subtitle" class="vmpanel-row-subtitle" text="{s:action_close_subtitle}" />
+      </Button>
+
+      <!-- Row pool for PanoramaManager (RowCount = 6). Never filled with
+           items here; rows stay hidden and only satisfy the renderer. -->
+      <Panel id="row0" class="vmpanel-poolrow hidden">
+        <Button id="row0_btn" class="vmpanel-row">
+          <Label class="vmpanel-row-title" text="{s:row0_title}" />
+          <Label class="vmpanel-row-subtitle" text="{s:row0_sub}" />
+        </Button>
+      </Panel>
+      <Panel id="row1" class="vmpanel-poolrow hidden">
+        <Button id="row1_btn" class="vmpanel-row">
+          <Label class="vmpanel-row-title" text="{s:row1_title}" />
+          <Label class="vmpanel-row-subtitle" text="{s:row1_sub}" />
+        </Button>
+      </Panel>
+      <Panel id="row2" class="vmpanel-poolrow hidden">
+        <Button id="row2_btn" class="vmpanel-row">
+          <Label class="vmpanel-row-title" text="{s:row2_title}" />
+          <Label class="vmpanel-row-subtitle" text="{s:row2_sub}" />
+        </Button>
+      </Panel>
+      <Panel id="row3" class="vmpanel-poolrow hidden">
+        <Button id="row3_btn" class="vmpanel-row">
+          <Label class="vmpanel-row-title" text="{s:row3_title}" />
+          <Label class="vmpanel-row-subtitle" text="{s:row3_sub}" />
+        </Button>
+      </Panel>
+      <Panel id="row4" class="vmpanel-poolrow hidden">
+        <Button id="row4_btn" class="vmpanel-row">
+          <Label class="vmpanel-row-title" text="{s:row4_title}" />
+          <Label class="vmpanel-row-subtitle" text="{s:row4_sub}" />
+        </Button>
+      </Panel>
+      <Panel id="row5" class="vmpanel-poolrow hidden">
+        <Button id="row5_btn" class="vmpanel-row">
+          <Label class="vmpanel-row-title" text="{s:row5_title}" />
+          <Label class="vmpanel-row-subtitle" text="{s:row5_sub}" />
+        </Button>
+      </Panel>
+
+    </Panel>
+  </Panel>
+</root>
