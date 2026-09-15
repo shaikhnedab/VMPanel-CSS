@@ -25,7 +25,7 @@ Current version: **3.5.0**
 | What | Version | Notes |
 |------|---------|-------|
 | CS2 dedicated server | latest | SteamCMD `app_update 730` |
-| MetaMod:Source | 2.x (CS2) | [sourcemod.net](https://www.sourcemod.net/downloads.php?branch=master) |
+| MetaMod:Source | 2.x (CS2) | [sourcemm.net](https://www.sourcemm.net/downloads.php?branch=dev) |
 | CounterStrikeSharp | 1.0.374+ | [releases](https://github.com/roflmuffin/CounterStrikeSharp/releases) — ships the `CCSCustomHudLayout` API |
 | MySQL / MariaDB | 5.7+ / 10.3+ | Tables auto-create on first boot |
 | .NET 10 SDK | 10.x | **build machine only** (to compile the plugin) |
