@@ -1,0 +1,41 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Build (Release)
+        run: dotnet build -c Release --no-restore
+
+      - name: Stage plugin package (with all dependencies)
+        run: |
+          mkdir -p dist/VMPanel-CSS
+          cp VMPanel/VMPanel.dll VMPanel/VMPanel.pdb VMPanel/MySqlConnector.dll VMPanel/PanoramaManager.dll dist/VMPanel-CSS/
+          cp -r VMPanel/lang dist/VMPanel-CSS/
+          cp README.md dist/VMPanel-CSS/
+          cd dist && zip -r "VMPanel-CSS-${{ github.ref_name }}.zip" VMPanel-CSS
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/VMPanel-CSS-*.zip
+          generate_release_notes: true

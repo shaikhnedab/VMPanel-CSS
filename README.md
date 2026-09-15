@@ -126,12 +126,26 @@ it cannot push files. This project's layouts ship as a workshop item:
 
 **https://steamcommunity.com/sharedfiles/filedetails/?id=3801047068**
 
-- **Players:** subscribe to the item (Steam downloads + mounts it automatically).
-- **Server operators:** nothing is required server-side for rendering (the files do nothing there);
-  keep a copy only as distribution backup.
-- **Loose-file alternative** (testing only): copy the compiled `*.vxml_c` / `*.vcss_c` into the
-  client's `game/csgo/panorama/layout/custom_game/` + `styles/custom_game/`. **Warning:** CS2
-  updates/verify routinely wipe loose files — the workshop subscription survives them.
+### Subscribing (players — do this)
+
+1. Open the link above in your browser (logged into the Steam account you play CS2 with).
+2. Click the green **Subscribe** button. Steam queues the download.
+3. Open/start Steam and let the download finish (Steam → Downloads, or it completes silently).
+4. **Fully restart CS2** — layouts load once per game session; reconnecting to a server is
+   not enough after a fresh subscribe or an addon update.
+5. Join the server and type `css_vip` in console. If the menu opens empty, the files didn't
+   arrive: check the subscription is still active on the item page and restart the game again.
+
+To unsubscribe later, return to the same page and click **Unsubscribe**.
+
+**Loose-file alternative** (testing only): copy the compiled `*.vxml_c` / `*.vcss_c` into the
+client's `game/csgo/panorama/layout/custom_game/` + `styles/custom_game/`. **Warning:** CS2
+updates/verify routinely wipe loose files — the workshop subscription survives them.
+
+### For server operators
+
+Nothing is required server-side for rendering (the files do nothing there); keep a copy only
+as distribution backup. Tell your players to subscribe to the item above.
 
 ### Compiling the layouts yourself
 
